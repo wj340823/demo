@@ -1,0 +1,268 @@
+@mixin scrollbar-diy {
+    /*三角箭头的颜色*/
+    scrollbar-arrow-color: #b9bed1;
+    /*滚动条滑块按钮的颜色*/
+    scrollbar-face-color: #b9bed1;
+    /*滚动条整体颜色*/
+    scrollbar-highlight-color: #fff;
+    /*滚动条阴影*/
+    scrollbar-shadow-color: #fff;
+    /*滚动条轨道颜色*/
+    scrollbar-track-color: #fff;
+    /*滚动条整体部分,必须要设置*/
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+    }
+    /*滚动条的轨道*/
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+    }
+    /*滚动条的滑块按钮*/
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #b9bed1;
+    }
+    /*滚动条的上下两端的按钮*/
+    &::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+.popup-label {
+    background-color: #FAFFBD;
+    border: 1px #888 solid;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    color: #111;
+    font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 3px 6px;
+    position: absolute;
+    white-space: nowrap;
+    top: -15px;
+    left: 20px;
+    display: none;
+}
+
+.popup-label img {
+    vertical-align: middle;
+}
+
+.popup-label.marker:before {
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    content: "";
+    border-right: 6px solid black;
+    border-right-color: inherit;
+    position: absolute;
+    left: -7px;
+    top: 5px;
+}
+
+.popover {
+    position: relative;
+    font-size: 14px;
+    &.top {
+        top: -60px;
+        transform: translateX(-50%);
+    }
+}
+
+.popover-content {
+    padding: 9px 14px;
+}
+
+.angular-openlayers-map:-moz-full-screen {
+    height: 100%;
+}
+
+.angular-openlayers-map:-webkit-full-screen {
+    height: 100%;
+}
+
+.angular-openlayers-map:full-screen {
+    height: 100%;
+}
+
+.angular-openlayers-map:not(-moz-full-screen) {
+    height: 400px;
+}
+
+.angular-openlayers-map:not(-webkit-full-screen) {
+    height: 400px;
+}
+
+.angular-openlayers-map:not(full-screen) {
+    height: 400px;
+}
+
+.angular-openlayers-map .ol-overviewmap-box {
+    border: 2px solid rgba(0, 60, 136, .7);
+    background-color: rgba(0, 60, 136, .2);
+}
+
+.featureOver {
+    padding: 5px;
+    background: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    color: #4e4e4e;
+    font-size: 12px;
+    &.clusterMulOver {
+        opacity: .8;
+        &.clusterMulClick {
+            opacity: 1;
+        }
+    }
+    &.trackOver {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .featureList {
+        margin-bottom: 0px;
+        max-height: 300px;
+        overflow-y: auto;
+        @include scrollbar-diy;
+        li {
+            padding: 0px 14px;
+            line-height: 25px;
+            cursor: pointer;
+            white-space: nowrap;
+            &:hover {
+                background-color: #cce8ff;
+            }
+            &.active {
+                background-color: #cce8ff;
+                border: 1px solid #99d1ff;
+            }
+        }
+        .moreList {
+            padding-left: 14px;
+            font-size: 14px;
+        }
+    }
+}
+
+.vueol-overlay{
+    position: absolute;
+    top: -8px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+    transform: translate(-50%, -100%);
+    .featureClick {
+        &:after {
+            content: '';
+            position: absolute;
+            left: calc(50% - 6px);
+            bottom: -6px;
+            border-style: solid;
+            border-width: 6px;
+            border-color: #fff #fff transparent transparent;
+            transform: rotate(135deg);
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+        .pop-title {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 20px;
+            background-image: linear-gradient(270deg, #257aff 0%, #009ffb 100%);
+            border-radius: 2px;
+            color: white;
+            font-size: 16px;
+            span {
+                width: 320px;
+            }
+            .otherOp {
+                float: right;
+                margin-right: 15px;
+            }
+        }
+        .pop-content {
+            padding: 12px 20px;
+            background-color: white;
+        }
+    }
+}
+
+/**
+* 提示框的样式信息
+*/
+.ol-viewport{
+    .tooltip {
+        position: relative;
+        background: white;
+        border: 1px solid #005699;
+        color: #333;
+        padding: 4px 8px;
+        white-space: nowrap;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        span {
+            font-weight: bold;
+            color: #f6b436;
+        }
+    }
+    .tooltip-distance {
+        padding: 0px 2px;
+        color: #666;
+        border: 1px solid #666;
+        span {
+            color: #666;
+            font-weight: normal;
+        }
+    }
+    .tooltip-close {
+        border: 1px solid red;
+        color: red;
+        padding: 1px 2px;
+        line-height: 12px;
+        background: white;
+        cursor: pointer;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/**
+* 周边范围
+*/
+.nearby-control-point {
+    height: 30px;
+    background: white;
+    margin-left: -15px;
+    margin-top: -15px;
+    a {
+        width: 25px;
+        height: 30px;
+        display: inline-block;
+        background: url(../assets/drag.png) no-repeat center;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    label {
+        display: inline-block;
+        margin-top: 1px;
+        margin-bottom: 0px;
+        padding: 0 6px;
+        height: 28px;
+        line-height: 26px;
+        border: 1px solid #ddd;
+        font-weight: normal;
+    }
+    input {
+        border: 0px;
+        width: 70px;
+        height: 26px;
+        line-height: 26px;
+    }
+}

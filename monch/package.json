@@ -1,0 +1,21 @@
+{
+  "name": "@suc/monch",
+  "version": "2.1.7",
+  "description": "基于 vue 对 ol6 进行组件封装",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiarx",
+  "license": "ISC",
+  "dependencies": {
+    "file-saver": "^2.0.2",
+    "ol": "^6.3.1",
+    "echarts": "^4.6.0",
+    "projzh": "^1.0.0",
+    "proj4": "^2.6.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  }
+}
